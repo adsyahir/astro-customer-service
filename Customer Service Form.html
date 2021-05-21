@@ -75,7 +75,7 @@
                 </div>
               </div>
     
-              <form action="/action_page.php" method="POST">
+              <form id="form" action="/action_page.php" method="POST">
                 <div class="row">
                   <div class="col-25">
                     <label for="fname">Feedback Type</label>
@@ -83,7 +83,7 @@
                   <div class="col-75">
                   
                     <select onchange ="check() "id="selectbox1" name="MainCategory" required>
-                      <option value="#" disabled="" selected="selected">
+                      <option value="#" disabled="disabled" selected="selected">
                         Select Category
                       </option>
                       <option value="My Astro service is currently unavailable">
@@ -111,7 +111,7 @@
                       name="SubCategory"
                       class="ignore defaultoption" disabled
                     >
-                      <option value="#" selected="">
+                      <option value="#" disabled="disabled" selected="selected">
                         Select Sub Category
                       </option>
                       <option value="Technical">Technical</option>
@@ -128,7 +128,7 @@
                     name="SubCategory"
                     class="ignore defaultoption" 
                   >
-                    <option value="#" disabled selected>
+                    <option value="#" disabled="disabled" disabled selected>
                       Select Sub Category
                     </option>
                     <option value="Technical">Technical</option>
@@ -141,7 +141,7 @@
                   name="SubCategory"
                   class="ignore defaultoption" 
                 >
-                  <option value="#" selected="">
+                  <option value="#" disabled="disabled" selected="selected">
                     Select Sub Category
                   </option>
                   <option value="General Enquiry">General Enquiry</option>
@@ -155,7 +155,7 @@
                   name="SubCategory"
                   class="ignore defaultoption" 
                 >
-                  <option value="#" selected="">
+                  <option value="#" disabled="disabled" selected="selected">
                     Select Sub Category
                   </option>
                   <option value="Reconnection">Reconnection</option>
@@ -169,7 +169,7 @@
                   name="SubCategory"
                   class="ignore defaultoption" 
                 >
-                  <option value="#" selected="">
+                  <option value="#" disabled="disabled" selected="selected">
                     Select Sub Category
                   </option>
                   <option value="Astro GO">Astro GO</option>
@@ -311,6 +311,7 @@
                         type="text"
                         name="accountnum"
                         placeholder="Astro Account Number/IC/Passport*"
+                        required="required"
                       />
                     </div>
                   </div>
@@ -335,7 +336,7 @@
                       <input
                         type="date"
                         name="date"
-                       
+                        aria-required="true"
                       />
                     </div>
                   </div>
@@ -344,7 +345,7 @@
                       <label for="country">Feedback Description</label>
                     </div>
                     <div class="col-75">
-                      <textarea name="Fdesciption" rows="4" cols="50" placeholder="Describe yourself here..."></textarea>
+                      <textarea name="Fdesciption" rows="4" cols="50" placeholder="Describe yourself here..." aria-required="true"></textarea>
                          
                       </textarea>
                   </div>
@@ -356,7 +357,7 @@
                    
                     <button type="reset" class="btn btn-reset"><span data-hover="Reset">Reset</span></button>
                     
-                      <button type="submit" class="btn btn-submit"><span data-hover="Send Message">Submit</span></button>
+                      <button type="submit" id="submit" class="btn btn-submit " disabled><span data-hover="Send Message">Submit</span></button>
     
                     </div>
                    
@@ -379,6 +380,21 @@
   else
     document.getElementById('FtSUBSelection').disabled=true;
    }
+   $("input[type='text'], textarea").on("keyup", function(){
+    if($(this).val() != "" && $("textarea").val() != ""){
+        $("button[type='submit']").removeAttr("disabled");
+        submit.style.background='red';
+    }
+});
+
+
+inputEl.addEventListener('invalid', function(e){
+   //if it's valid, cancel the event
+   if(e.target.value) {
+       e.preventDefault();
+   }
+}); 
+
 
    $(document).ready(function() {
   $('#selectbox1').on('change', function() {
@@ -401,7 +417,7 @@
       
 
     }
-    else if(this.value ==='2')
+    else if(this.value ==='I have an enquiry/feedback')
     {
       $("#FtSUBSelection").hide();
       $("#FtSUBSelection1").hide();
@@ -410,7 +426,7 @@
       $("#FtSUBSelection4").hide();
       $("#FtSUBSelection5").hide();
     }
-    else if(this.value == '3')
+    else if(this.value === 'I would like to reconnect my service')
     {
       $("#FtSUBSelection").hide();
       $("#FtSUBSelection1").hide();
@@ -419,7 +435,7 @@
       $("#FtSUBSelection4").hide();
       $("#FtSUBSelection5").hide();
     }
-    else if(this.value == '4')
+    else if(this.value === "I'm not happy")
     {
       $("#FtSUBSelection").hide();
       $("#FtSUBSelection1").hide();
@@ -429,7 +445,7 @@
       $("#FtSUBSelection5").hide();
       
     }
-    else if(this.value == '5')
+    else if(this.value === 'I have an enquiry/issue with Apps')
     {
       $("#FtSUBSelection").hide();
       $("#FtSUBSelection1").hide();
@@ -444,7 +460,9 @@
   });
 });
 
+
     </script>
+   
     </body>
    
 </html>

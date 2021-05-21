@@ -100,6 +100,15 @@ input[type=text],input[type=date],input[type=email],input[type=time],textarea,se
    font-size:15px;
    
 }
+.input[required], .textarea[required] {
+  display: inline-block !important;
+  height: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  z-index: -1 !important;
+  position: absolute !important;
+}
+
 
 input:focus, textarea:focus, select:focus{
   outline: none;
@@ -211,7 +220,10 @@ input[type=number]  {
    background-color: #ec008c;
 }
 
-
+.disableBtn
+{
+   background-color: #9F9F9F;
+}
 .btn:hover
 {
   cursor: pointer;
