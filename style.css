@@ -88,7 +88,7 @@
  
 }
 
-input[type=text],input[type=date],input[type=email],input[type=time],textarea,select
+input[type=text],input[type=date],input[type=email],input[type=time],input[type=number],textarea,select
 {
    width:100%;
    padding:12px;
@@ -182,7 +182,7 @@ label
 {
   margin-top: 20px;
 }
- input[type=date],select
+ input[type=date],select,input[type=number]
 {
   width: 300px;
 }

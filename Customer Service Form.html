@@ -214,7 +214,15 @@
                       <label></label>
                     </div>
                     <div class="col-75">
-                      <input type="text" name="name" placeholder="Name*" />
+                      <input type="text" name="name" placeholder="Name*" required/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label></label>
+                    </div>
+                    <div class="col-75">
+                      <input type="number" min="1" max="100" step="1" name="age" placeholder="Age*" required/>
                     </div>
                   </div>
                   <div class="row">
@@ -226,6 +234,7 @@
                         type="text"
                         name="cnumber"
                         placeholder="Contact Number*"
+                        required
                       />
                     </div>
                   </div>
@@ -238,6 +247,7 @@
                         type="email"
                         name="email"
                         placeholder="Email Address*"
+                        required
                       />
                     </div>
                   </div>
@@ -336,7 +346,7 @@
                       <input
                         type="date"
                         name="date"
-                        aria-required="true"
+                        required
                       />
                     </div>
                   </div>
@@ -345,7 +355,7 @@
                       <label for="country">Feedback Description</label>
                     </div>
                     <div class="col-75">
-                      <textarea name="Fdesciption" rows="4" cols="50" placeholder="Describe yourself here..." aria-required="true"></textarea>
+                      <textarea name="Fdesciption" rows="4" cols="50" placeholder="Describe yourself here..." required></textarea>
                          
                       </textarea>
                   </div>
@@ -357,7 +367,7 @@
                    
                     <button type="reset" class="btn btn-reset"><span data-hover="Reset">Reset</span></button>
                     
-                      <button type="submit" id="submit" class="btn btn-submit " disabled><span data-hover="Send Message">Submit</span></button>
+                      <button type="submit" id="submit" class="btn btn-submit disableBtn " disabled><span data-hover="Send Message">Submit</span></button>
     
                     </div>
                    
@@ -380,10 +390,10 @@
   else
     document.getElementById('FtSUBSelection').disabled=true;
    }
-   $("input[type='text'], textarea").on("keyup", function(){
+   $("input, textarea,select").on("keyup", function(){
     if($(this).val() != "" && $("textarea").val() != ""){
         $("button[type='submit']").removeAttr("disabled");
-        submit.style.background='red';
+        submit.style.background='#ec008c';
     }
 });
 
