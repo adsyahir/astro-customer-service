@@ -23,6 +23,11 @@
          color:white;
         
      }
+
+     @font-face {
+       font-family: customFont;
+       src: url("astroarmadagrad.ttf") ;
+     }
  
  .container2
  {
@@ -40,9 +45,14 @@
    font-family:sans-serif;
    margin:0;
  }
+
  .title-bg
  {
-     font-size: 110px;
+
+     font-family: customFont;
+     font-weight:normal;
+      font-style:normal;
+     font-size: 150px;
      letter-spacing: 10px;
      line-height: 0.7;
      display: inline-flex;
@@ -300,11 +310,11 @@ input[type=reset]:hover {
 }
 .stars {
   position: fixed;
-  top: 0;
+  top: -100;
   left: 0;
   width: 100%;
   height: 120%;
-  transform: rotate(-45deg);
+  transform: rotate(-25deg);
 }
 
 .star {
@@ -714,6 +724,3 @@ input[type=reset]:hover {
   padding: 0 8px;
 }
 
-p{
-  text-align: ;
-}
