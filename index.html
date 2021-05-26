@@ -402,14 +402,8 @@
 });
 
 
-inputEl.addEventListener('invalid', function(e){
-   //if it's valid, cancel the event
-   if(e.target.value) {
-       e.preventDefault();
-   }
-}); 
 
-
+    
    $(document).ready(function() {
   $('#selectbox1').on('change', function() {
     if (this.value === "My Astro service is currently unavailable") {

@@ -105,7 +105,7 @@ input[type=text],input[type=date],input[type=email],input[type=time],input[type=
    border:1px solid #ccc;
    border-radius:30px;
    resize:vertical;
-   background-color: #252525;
+   background-color: rgba(73, 73, 73, 0.075);
    color:white;
    font-size:15px;
    
@@ -119,6 +119,10 @@ input[type=text],input[type=date],input[type=email],input[type=time],input[type=
   position: absolute !important;
 }
 
+select option
+{
+  color:black;
+}
 
 input:focus, textarea:focus, select:focus{
   outline: none;
